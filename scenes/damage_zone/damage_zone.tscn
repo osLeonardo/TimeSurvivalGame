@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://bbbnpntn4y15v"]
+
+[ext_resource type="Script" path="res://scenes/damage_zone/damage_zone.gd" id="1_7doe5"]
+
+[node name="damage_zone" type="Area2D"]
+collision_layer = 2
+script = ExtResource("1_7doe5")
+
+[node name="damage_collision" type="CollisionShape2D" parent="."]
+
+[node name="damage_timer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="timeout" from="damage_timer" to="." method="_on_damage_timer_timeout"]
